@@ -1,6 +1,14 @@
-
-<div class="container">
-    <h1>Pages#home</h1>
-    <p>Find me in app/views/pages/home.html.erb</p>
-    <%= link_to "about", about_path %>
-</div>
+<!-- app/views/pages/home.html.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sua Página</title>
+  <!-- Adicione os scripts e estilos necessários aqui -->
+</head>
+<body>
+  <div id="data-container" class="text-sm-start">
+    <%= raw @consulta_estacoes.to_json %>
+    <%= raw @consulta_microparticulas.to_json %>
+  </div>
+</body>
+</html>

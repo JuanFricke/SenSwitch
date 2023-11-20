@@ -1,0 +1,117 @@
+[
+  {
+    "adr": true,
+    "confirmed": false,
+    "data": "AQkMfww1DGr//wA=",
+    "deduplicationId": "b81f1113-7b84-4905-945c-35cadec3a45e",
+    "devAddr": "0000f29c",
+    "devEui": "00137a100000f29c",
+    "deviceInfo": {
+      "applicationId": "c2f86cf1-8a3d-4d45-86e2-459d5b74827a",
+      "applicationName": "Micropartículas",
+      "devEui": "00137a100000f29c",
+      "deviceName": "Micropartículas Rótula do Tafarel",
+      "deviceProfileId": "fb6bfa4e-e889-4b55-b0ab-b9357197bee6",
+      "deviceProfileName": "Micropartícula K72623-LO",
+      "tags": {
+      },
+      "tenantId": "8a9c099e-efd2-406d-bb56-d1a399f932ba",
+      "tenantName": "Santa Rosa"
+    },
+    "deviceName": "Micropartículas Rótula do Tafarel",
+    "dr": 5,
+    "fCnt": 27663,
+    "fPort": 6,
+    "id": "00137a100000f29c",
+    "object": {
+      "Device": null,
+      "co2": 65535,
+      "database_table": "K72623_LO",
+      "humidity": 31.78,
+      "nh3": 65535,
+      "noise": 80.5,
+      "pm10": 33,
+      "pm1_0": 65535,
+      "pm2_5": 0,
+      "report_type": "0c",
+      "temperature": 31.25,
+      "voltage": 12.7
+    },
+    "rxInfo": [
+      {
+        "channel": 6,
+        "context": "J3WRlA==",
+        "crcStatus": "CRC_OK",
+        "gatewayId": "ac1f09fffe06fcd9",
+        "location": {
+          "altitude": 333,
+          "latitude": -27.86885,
+          "longitude": -54.47903
+        },
+        "metadata": {
+          "region_common_name": "AU915",
+          "region_config_id": "au915_0"
+        },
+        "rfChain": 1,
+        "rssi": 2,
+        "snr": 8.8,
+        "time": "2023-11-19T19:50:21.692660+00:00",
+        "timeSinceGpsEpoch": "1384458639.692s",
+        "uplinkId": 5383
+      },
+      {
+        "channel": 6,
+        "context": "kzopTA==",
+        "crcStatus": "CRC_OK",
+        "gatewayId": "ac1f09fffe06fcc6",
+        "location": {
+          "altitude": 326,
+          "latitude": -27.85243,
+          "longitude": -54.49184
+        },
+        "metadata": {
+          "region_common_name": "AU915",
+          "region_config_id": "au915_0"
+        },
+        "rfChain": 1,
+        "rssi": -100,
+        "snr": 7,
+        "time": "2023-11-19T19:50:21.692659+00:00",
+        "timeSinceGpsEpoch": "1384458639.692s",
+        "uplinkId": 5203
+      },
+      {
+        "channel": 6,
+        "context": "hSgbdA==",
+        "crcStatus": "CRC_OK",
+        "gatewayId": "ac1f09fffe06fccb",
+        "location": {
+          "altitude": 376,
+          "latitude": -27.8672,
+          "longitude": -54.47224
+        },
+        "metadata": {
+          "region_common_name": "AU915",
+          "region_config_id": "au915_0"
+        },
+        "rfChain": 1,
+        "rssi": -65,
+        "snr": 8.8,
+        "time": "2023-11-19T19:50:21.692660+00:00",
+        "timeSinceGpsEpoch": "1384458639.692s",
+        "uplinkId": 25993
+      }
+    ],
+    "time": "2023-11-19T19:50:21.692+00:00",
+    "txInfo": {
+      "frequency": 916400000,
+      "modulation": {
+        "lora": {
+          "bandwidth": 125000,
+          "codeRate": "CR_4_5",
+          "spreadingFactor": 7
+        }
+      }
+    }
+  }
+]

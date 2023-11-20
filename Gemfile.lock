@@ -87,6 +87,10 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -172,6 +176,7 @@ GEM
     regexp_parser (2.8.2)
     reline (0.4.0)
       io-console (~> 0.5)
+    rethinkdb (2.4.0.0)
     rexml (3.2.6)
     rubyzip (2.3.2)
     selenium-webdriver (4.15.0)
@@ -217,10 +222,12 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv-rails
   importmap-rails
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rethinkdb
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
