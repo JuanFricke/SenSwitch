@@ -2,51 +2,46 @@ require 'rethinkdb'
 require 'json'
 
 class PagesController < ApplicationController
+  before_action :set_rethinkdb_connection
+
   def home
-    # Configuração de conexão com o banco de dados RethinkDB
-    conn = RethinkDB::RQL.new.connect(
-      host: ENV['RETHINKDB_HOST'],
-      port: ENV['RETHINKDB_PORT'],
-      db: ENV['RETHINKDB_DB'],
-      user: ENV['RETHINKDB_USER'],
-      password: ENV['RETHINKDB_PASSWORD']
-    )
-
-    # Consulta a tabela 'estacoes_metereologicas'
-    consulta_estacoes = RethinkDB::RQL.new.table('estacoes_metereologicas').run(conn)
-
-    # Consulta a tabela 'microparticulas'
-    consulta_microparticulas = RethinkDB::RQL.new.table('microparticulas').run(conn)
-
-    @consulta_estacoes = consulta_estacoes
-    @consulta_microparticulas = consulta_microparticulas
-
-    # Fecha a conexão com o servidor RethinkDB
-    conn.close
-
-
+    @consulta_estacoes = query_table('estacoes_metereologicas')
+    @consulta_microparticulas = query_table('microparticulas')
   end
 
   def about
-    # Configuração de conexão com o banco de dados RethinkDB
-    conn = RethinkDB::RQL.new.connect(
+    render json: {
+      estacoes_metereologicas: query_table('estacoes_metereologicas'),
+      microparticulas: query_table('microparticulas')
+    }
+  end
+
+  def refresh_data
+    render json: {
+      estacoes_metereologicas: query_table('estacoes_metereologicas'),
+      microparticulas: query_table('microparticulas')
+    }
+  end
+
+  private
+
+  def set_rethinkdb_connection
+    @conn ||= RethinkDB::RQL.new.connect(
       host: ENV['RETHINKDB_HOST'],
       port: ENV['RETHINKDB_PORT'],
       db: ENV['RETHINKDB_DB'],
       user: ENV['RETHINKDB_USER'],
       password: ENV['RETHINKDB_PASSWORD']
     )
-
-    # Consulta a tabela 'estacoes_metereologicas'
-    consulta_estacoes = RethinkDB::RQL.new.table('estacoes_metereologicas').run(conn)
-
-    # Consulta a tabela 'microparticulas'
-    consulta_microparticulas = RethinkDB::RQL.new.table('microparticulas').run(conn)
-
-    conn.close
-    render json: {
-      estacoes_metereologicas: consulta_estacoes,
-      microparticulas: consulta_microparticulas
-    }
   end
+
+  def query_table(table_name)
+    RethinkDB::RQL.new.table(table_name).run(@conn)
+  end
+
+  def close_rethinkdb_connection
+    @conn&.close
+  end
+
+  after_action :close_rethinkdb_connection
 end

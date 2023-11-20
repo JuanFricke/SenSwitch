@@ -4,11 +4,28 @@
 <head>
   <title>Sua Página</title>
   <!-- Adicione os scripts e estilos necessários aqui -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <%= javascript_include_tag 'refresh_data' %>
+  <style>
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
 </head>
-<body>
-  <div id="data-container" class="text-sm-start">
+<body class="has-background-dark">
+  <div id="data-container" class="box">
+    <!-- Não inclua diretamente os resultados aqui -->
+  </div>
+
+
+ 
+
+  <div id="data-container" class="box">
     <%= raw @consulta_estacoes.to_json %>
+    <hr>
     <%= raw @consulta_microparticulas.to_json %>
   </div>
+
+
 </body>
 </html>

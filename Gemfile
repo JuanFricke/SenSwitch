@@ -9,6 +9,7 @@ gem "rails", "~> 7.0.8"
 # additional gems
 gem 'rethinkdb'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'whenever', require: false
 ########################################################################
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
