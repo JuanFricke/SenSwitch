@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html >
-  <head class="has-background-dark">
+  <head>
     <title>App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="has-background-dark">
+  <body>
     <%= render 'layouts/navbar'%>
     <main>
       <%= yield %>

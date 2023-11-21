@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.8"
 # additional gems
 gem 'rethinkdb'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'bulma-rails'
+gem 'sassc-rails'
 gem 'whenever', require: false
 ########################################################################
 
