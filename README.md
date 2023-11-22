@@ -8,7 +8,7 @@ Este projeto é parte do curso de Gestão de Infraestruturas da Universidade Reg
 - Rails v7.0.8
 - RethinkDB gem para integração com o banco de dados
 - Dotenv Rails para configuração de variáveis de ambiente
-- Whenever para agendar tarefas Rake
+- clockwork para agendar tarefas Rake
 - Bulma CSS para estilos
 - SQLite para armazenamento de dados (desenvolvimento/teste)
 
@@ -63,6 +63,7 @@ rails db:migrate
 4. Inicie o servidor Rails:
 
 ```bash
+    bundle exec clockwork config/clock.rb
     rails server
 ```
 5. Acesse o aplicativo em http://localhost:3000.
