@@ -14,17 +14,15 @@
 </head>
 <body>
   <div id="data-container" class="box">
-    <!-- Não inclua diretamente os resultados aqui -->
-  </div>
+  <!-- Não inclua diretamente os resultados aqui -->
+</div>
 
+<div id="outro-data-container" class="box">
+  <%= raw @consulta_estacoes.to_json %>
+  <hr>
+  <%= raw @consulta_microparticulas.to_json %>
+</div>
 
- 
-
-  <div id="data-container" class="box">
-    <%= raw @consulta_estacoes.to_json %>
-    <hr>
-    <%= raw @consulta_microparticulas.to_json %>
-  </div>
 
 
 </body>
