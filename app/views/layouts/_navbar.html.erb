@@ -2,8 +2,8 @@
   <div class="navbar-brand">
     
     
-    <a href="/" class="navbar-item" onclick="location.reload(true);">Home</a>
-    
+    <%= link_to "Home", root_path, class:"navbar-item" %>
+   
   </div>
     
 
@@ -17,10 +17,8 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
         <%= link_to "about", about_path, class:"navbar-item"%>     
-
-      <a class="navbar-item">
-        Documentation
-      </a>
+        
+        <%= link_to "Test", test_path, class:"navbar-item" %>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
