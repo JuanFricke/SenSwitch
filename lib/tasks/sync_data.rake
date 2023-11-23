@@ -31,19 +31,16 @@ namespace :sync_data do
       # Salvar os dados em arquivos JSON locais no diretório senswitch/json_data
       timestamp = Time.now.strftime('%Y%m%d%H%M%S')
       combined_data = {
+        timestamp: {timestamp:timestamp},
         estacoes_data: estacoes_data,
         microparticulas_data: microparticulas_data
       }
 
-      json_filename = "#{json_data_dir}/combined_data_#{timestamp}.json"
+      json_filename = "#{json_data_dir}/combined_data.json"
 
       File.open(json_filename, 'w') { |file| file.write(JSON.generate(combined_data)) }
 
-      # Manter apenas os últimos 5 arquivos e excluir os mais antigos
-      json_files = Dir.glob("#{json_data_dir}/combined_data_*.json").sort
-      json_files = json_files.last(5)
 
-      FileUtils.rm(json_files[0..-6]) if json_files.size > 5
 
       # Fechar a conexão com o RethinkDB
       conn_rethinkdb.close

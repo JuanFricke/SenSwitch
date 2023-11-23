@@ -10,10 +10,6 @@ class PagesController < ApplicationController
   end
 
   def about
-    render json: {
-      estacoes_metereologicas: query_table('estacoes_metereologicas'),
-      microparticulas: query_table('microparticulas')
-    }
   end
 
   def refresh_data
