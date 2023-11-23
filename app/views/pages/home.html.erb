@@ -5,7 +5,7 @@
   <title>Sua Página</title>
   <!-- Adicione os scripts e estilos necessários aqui -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <%= javascript_include_tag 'refresh_data' %>
+  <%= javascript_include_tag 'refresh_data'%>
   <style>
     pre {
       white-space: pre-wrap;
@@ -13,10 +13,8 @@
   </style>
 </head>
 <body>
-  
-  <div id="data-container" class="box">
-  <!-- Não inclua diretamente os resultados aqui -->
-  
+  <div class="container is-fluid">
+  <div id="data-container" class="table is-bordered is-striped is-fullwidth"></div>
   </div>
 
 <div id="outro-data-container" class="box">

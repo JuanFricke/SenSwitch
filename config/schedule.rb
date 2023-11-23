@@ -19,6 +19,3 @@
 
 # Learn more: http://github.com/javan/whenever
 # config/schedule.rb
-every 5.minutes do
-  rake 'sync_data:run'
-end
