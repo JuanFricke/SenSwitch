@@ -1,43 +1,30 @@
-require 'rethinkdb'
 require 'json'
 
 class PagesController < ApplicationController
-  before_action :set_rethinkdb_connection
-
   def home
-    @consulta_estacoes = query_table('estacoes_metereologicas')
-    @consulta_microparticulas = query_table('microparticulas')
+    json_data = read_json_file('combined_data.json')
+    @last_bd_update = json_data['timestamp']['timestamp']
+    @consulta_estacoes = json_data['estacoes_data']
+    @consulta_microparticulas = json_data['microparticulas_data']
   end
 
   def about
   end
 
   def refresh_data
+    json_data = read_json_file('combined_data.json')
     render json: {
-      estacoes_metereologicas: query_table('estacoes_metereologicas'),
-      microparticulas: query_table('microparticulas')
+      bd_update_time: json_data['timestamp']['timestamp'],
+      estacoes_metereologicas: json_data['estacoes_data'],
+      microparticulas: json_data['microparticulas_data']
     }
   end
 
   private
 
-  def set_rethinkdb_connection
-    @conn ||= RethinkDB::RQL.new.connect(
-      host: ENV['RETHINKDB_HOST'],
-      port: ENV['RETHINKDB_PORT'],
-      db: ENV['RETHINKDB_DB'],
-      user: ENV['RETHINKDB_USER'],
-      password: ENV['RETHINKDB_PASSWORD']
-    )
+  def read_json_file(file_name)
+    file_path = Rails.root.join('json_data', file_name)
+    json_data = File.read(file_path)
+    JSON.parse(json_data)
   end
-
-  def query_table(table_name)
-    RethinkDB::RQL.new.table(table_name).run(@conn)
-  end
-
-  def close_rethinkdb_connection
-    @conn&.close
-  end
-
-  after_action :close_rethinkdb_connection
 end

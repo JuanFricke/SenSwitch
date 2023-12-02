@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'about', to: 'pages#about'
   get 'refresh_data', to: 'pages#refresh_data'
   get 'test', to: 'pages#test'

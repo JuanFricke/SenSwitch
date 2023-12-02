@@ -12,6 +12,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'bulma-rails'
 gem 'sassc-rails'
 gem 'clockwork'
+gem 'devise'
 
 ########################################################################
 

@@ -63,6 +63,7 @@ rails db:migrate
 4. Inicie o servidor Rails:
 
 ```bash
+    bundle exec clockwork config/clock.rb
     rails server
 ```
 5. Acesse o aplicativo em http://localhost:3000.
