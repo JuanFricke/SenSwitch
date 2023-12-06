@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.10.5/css/bulma.min.css">
+  <title>Seu Site</title>
+  <style>
+    /* Adicione estilos personalizados aqui, se necessário */
+  </style>
+</head>
+<body>
+
+<div class="container is-widescreen">
+  <div class="tile is-ancestor is-15">
+
+    <div class="tile is-parent box" id="sensor1">
+      <div class="notification is-warning">
+        <h3>Estação Cruzeiro</h3>
+        Com problemas Santa Rosa
+      </div>
+      <div class="sensor-menu" style="display: none;">
+        <div class="notification">
+          <h3>Informações do Sensor</h3>
+          Adicione aqui as informações do sensor 1.
+        </div>
+      </div>
+    </div>
+
+    <div class="tile is-parent box" id="sensor2">
+      <div class="notification is-danger">
+        <h3>Estações Meteorológica</h3>
+        adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
+      </div>
+      <div class="sensor-menu" style="display: none;">
+        <div class="notification">
+          <h3>Informações do Sensor</h3>
+          Adicione aqui as informações do sensor 2.
+        </div>
+      </div>
+    </div>
+
+    <div class="tile is-parent box" id="sensor3">
+      <div class="notification is-success">
+        <h3>Estações Aeroporto</h3>
+        adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
+      </div>
+      <div class="sensor-menu" style="display: none;">
+        <div class="notification">
+          <h3>Informações do Sensor</h3>
+          Adicione aqui as informações do sensor 3.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".notification").click(function () {
+      // ID do sensor associado à notificação
+      var sensorId = $(this).parent().attr("id");
+      var sensorMenu = $("#" + sensorId + " .sensor-menu");
+
+      // Verificar se o menu lateral está aberto
+      if (sensorMenu.is(":visible")) {
+        // Fechar o menu lateral se estiver aberto
+        sensorMenu.slideUp();
+      } else {
+        // Fechar outros menus e abrir o menu atual
+        $(".sensor-menu").not(sensorMenu).slideUp();
+        sensorMenu.slideDown();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
