@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'test', to: 'pages#test'
   get 'sobre', to: 'pages#sobre'
   get 'monitor', to: 'pages#monitor'
-  get 'monitor2', to: 'pages#monitor_with_json'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
