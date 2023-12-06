@@ -131,16 +131,18 @@ $(document).ready(function () {
       $(".notification").click(function () {
         var sensorId = $(this).closest(".box").attr("id");
         var sensorMenu = $("#" + sensorId + "-menu .sensor-menu");
-
+      
         if (sensorMenu.is(":visible")) {
           sensorMenu.slideUp();
-          infoPanelOpen = false;
+          $(this).removeClass("is-active"); // Remove a classe is-active quando o painel é fechado
         } else {
           $(".sensor-menu").not(sensorMenu).slideUp();
           sensorMenu.slideDown();
-
+          $(".notification").removeClass("is-light"); // Remove a classe is-active de todas as notificações
+          $(this).addClass("is-light"); // Adiciona a classe is-active à notificação clicada
+      
           var closeBtn = '<button class="delete" id="closeInfoPanelBtn"></button>';
-
+      
           var infoContent = $("#" + sensorId + "-menu .notification").html();
           var sensorInfoContent = createTable(jsonData.estacoes_metereologicas.find(sensor => sensor.deviceName === sensorId) || jsonData.microparticulas.find(sensor => sensor.deviceName === sensorId));
           $("#infoPanel").html(
@@ -155,7 +157,7 @@ $(document).ready(function () {
               </article >"
             </div>`
           );
-
+      
           infoPanelOpen = true;
         }
       });
