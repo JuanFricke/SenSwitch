@@ -141,7 +141,7 @@ $(document).ready(function () {
           $(".notification").removeClass("is-light"); // Remove a classe is-active de todas as notificações
           $(this).addClass("is-light"); // Adiciona a classe is-active à notificação clicada
       
-          var closeBtn = '<button class="delete" id="closeInfoPanelBtn"></button>';
+          var closeBtn = '<button class="delete button is-dark" id="closeInfoPanelBtn"></button>';
       
           var infoContent = $("#" + sensorId + "-menu .notification").html();
           var sensorInfoContent = createTable(jsonData.estacoes_metereologicas.find(sensor => sensor.deviceName === sensorId) || jsonData.microparticulas.find(sensor => sensor.deviceName === sensorId));
@@ -171,7 +171,9 @@ $(document).ready(function () {
   setInterval(loadData, 5 * 60 * 1000);
 
   // Evento de clique para fechar o painel de informações se estiver aberto
+  // Evento de clique para fechar o painel de informações se estiver aberto
   $(document).on('click', '#closeInfoPanelBtn', function () {
+    $(".notification.is-light").removeClass("is-light"); // Remove a classe is-light da notificação aberta
     $("#infoPanel").html('');
     infoPanelOpen = false;
   });
