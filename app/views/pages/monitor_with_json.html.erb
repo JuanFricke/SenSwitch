@@ -1,0 +1,41 @@
+<!-- app/views/pages/home.html.erb -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sua Página</title>
+  <style>
+    .sensor-menu {
+      display: none;
+    }
+
+    .info-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      overflow-y: auto;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-left: 1px solid #ddd;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <%= javascript_include_tag 'monitor' %>
+</head>
+<body>
+
+<div class="container is-widescreen">
+  <div class="columns is-multiline" id="sensorColumns">
+    <!-- Colunas dinâmicas serão adicionadas aqui -->
+  </div>
+</div>
+
+<div class="message" id="infoPanel">
+  <!-- Conteúdo da área de informações do sensor -->
+</div>
+
+</body>
+</html>

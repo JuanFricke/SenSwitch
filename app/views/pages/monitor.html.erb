@@ -6,72 +6,193 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.10.5/css/bulma.min.css">
   <title>Seu Site</title>
   <style>
-    /* Adicione estilos personalizados aqui, se necessário */
+    .sensor-menu {
+      display: none;
+    }
+
+    .info-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      overflow-y: auto;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-left: 1px solid #ddd;
+    }
   </style>
 </head>
 <body>
 
 <div class="container is-widescreen">
-  <div class="tile is-ancestor is-15">
+  <div class="columns is-multiline">
 
-    <div class="tile is-parent box" id="sensor1">
-      <div class="notification is-warning">
-        <h3>Estação Cruzeiro</h3>
-        Com problemas Santa Rosa
-      </div>
-      <div class="sensor-menu" style="display: none;">
-        <div class="notification">
-          <h3>Informações do Sensor</h3>
-          Adicione aqui as informações do sensor 1.
+    <!-- Linha 1 -->
+    <div class="column is-one-third">
+      <div class="box" id="sensor1">
+        <div class="notification is-warning">
+          <h3>Estação Cruzeiro</h3>
+          Com problemas Santa Rosa
+        </div>
+        <div class="sensor-menu" id="sensor1-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 1.
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="tile is-parent box" id="sensor2">
-      <div class="notification is-danger">
-        <h3>Estações Meteorológica</h3>
-        adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
-      </div>
-      <div class="sensor-menu" style="display: none;">
-        <div class="notification">
-          <h3>Informações do Sensor</h3>
-          Adicione aqui as informações do sensor 2.
+    <div class="column is-one-third">
+      <div class="box" id="sensor2">
+        <div class="notification is-danger">
+          <h3>Estações Meteorológica</h3>
+          adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
+        </div>
+        <div class="sensor-menu" id="sensor2-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 2.
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="tile is-parent box" id="sensor3">
-      <div class="notification is-success">
-        <h3>Estações Aeroporto</h3>
-        adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
-      </div>
-      <div class="sensor-menu" style="display: none;">
-        <div class="notification">
-          <h3>Informações do Sensor</h3>
-          Adicione aqui as informações do sensor 3.
+    <div class="column is-one-third">
+      <div class="box" id="sensor3">
+        <div class="notification is-success">
+          <h3>Estações Aeroporto</h3>
+          adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur.
+        </div>
+        <div class="sensor-menu" id="sensor3-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 3.
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Linha 2 -->
+    <div class="column is-one-third">
+      <div class="box" id="sensor4">
+        <div class="notification is-warning">
+          <h3>Estação 4</h3>
+          Com problemas em algum lugar
+        </div>
+        <div class="sensor-menu" id="sensor4-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 4.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-one-third">
+      <div class="box" id="sensor5">
+        <div class="notification is-danger">
+          <h3>Estação 5</h3>
+          Com problemas em algum lugar
+        </div>
+        <div class="sensor-menu" id="sensor5-menu" style="display: none;">
+          <div class="message">
+            <h3 class="message-header">Informações do Sensor</h3>
+            <div class="message-body">
+            Adicione aqui as informações do sensor 5.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-one-third">
+      <div class="box" id="sensor6">
+        <div class="notification is-success">
+          <h3>Estação 6</h3>
+          Com problemas em algum lugar
+        </div>
+        <div class="sensor-menu" id="sensor6-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 6.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha 3 -->
+    <div class="column is-one-third">
+      <div class="box" id="sensor7">
+        <div class="notification is-warning">
+          <h3>Estação 7</h3>
+          Com problemas em algum lugar
+        </div>
+        <div class="sensor-menu" id="sensor7-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 7.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-one-third">
+      <div class="box" id="sensor8">
+        <div class="notification is-danger">
+          <h3>Estação 8</h3>
+          Com problemas em algum lugar
+        </div>
+        <div class="sensor-menu" id="sensor8-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 8.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-one-third">
+      <div class="box" id="sensor9">
+        <div class="notification is-success">
+          <h3 >Estação 9</h3>
+          Com problemas em algum lugar
+        </div>
+        <div class="sensor-menu" id="sensor9-menu" style="display: none;">
+          <div class="notification">
+            <h3>Informações do Sensor</h3>
+            Adicione aqui as informações do sensor 9.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adicione mais tiles conforme necessário -->
 
   </div>
+</div>
+
+<div class="message" id="infoPanel">
+  <!-- Conteúdo da área de informações do sensor -->
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function () {
     $(".notification").click(function () {
-      // ID do sensor associado à notificação
-      var sensorId = $(this).parent().attr("id");
-      var sensorMenu = $("#" + sensorId + " .sensor-menu");
+      var sensorId = $(this).closest(".box").attr("id");
+      var sensorMenu = $("#" + sensorId + "-menu .sensor-menu");
 
-      // Verificar se o menu lateral está aberto
       if (sensorMenu.is(":visible")) {
-        // Fechar o menu lateral se estiver aberto
         sensorMenu.slideUp();
       } else {
-        // Fechar outros menus e abrir o menu atual
         $(".sensor-menu").not(sensorMenu).slideUp();
         sensorMenu.slideDown();
+
+        // Atualiza o conteúdo da área de informações do sensor
+        var infoContent = $("#" + sensorId + "-menu .notification").html();
+        $("#infoPanel").html(infoContent);
       }
     });
   });
