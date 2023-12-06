@@ -14,6 +14,7 @@ gem 'sassc-rails'
 gem 'clockwork'
 gem 'devise'
 
+
 ########################################################################
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

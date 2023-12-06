@@ -4,26 +4,15 @@
 <head>
   <title>Sua Página</title>
   <!-- Adicione os scripts e estilos necessários aqui -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <%= javascript_include_tag 'refresh_data'%>
-  <style>
-    pre {
-      white-space: pre-wrap;
-    }
-  </style>
-</head>
-<body>
-  <div class="container is-fluid">
-  <div id="data-container" class="table is-bordered is-striped is-fullwidth"></div>
+<% if user_signed_in? %> <!-- Verifica se o usuário está autenticado com Devise -->
+  <div class = " box title is-2">
+    <h2>Bem vindo a SenSwitch</h2>   
   </div>
-
-<div id="outro-data-container" class="box">
-  <%= raw @consulta_estacoes.to_json %>
-  <hr>
-  <%= raw @consulta_microparticulas.to_json %>
-</div>
-
-
-
-</body>
-</html>
+  <%= render 'layouts/monitor'%>
+<% else %>
+  <div class="container is-widescreen">  
+    <div class="notification is-warning">
+      <p>Você precisa estar logado para acessar esta página.</p>
+    </div>
+  </div>
+<% end %>

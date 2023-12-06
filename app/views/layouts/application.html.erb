@@ -14,7 +14,7 @@
 
   <body>
     <%= render 'layouts/navbar'%>
-    <form class="box">
+    
       <div class="field">
             
             <% if flash[:notice] %>
@@ -29,13 +29,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             <% end %>
       </div>
-    </form>
+    
 
 
       
       <main>
-        <%= yield %>
-    </div>
+
+        <%= yield%>
+    
     </main>
   </body>
 </html>

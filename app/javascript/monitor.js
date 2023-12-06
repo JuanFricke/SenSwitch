@@ -1,24 +1,41 @@
 $(document).ready(function () {
+    // Função para formatar a data do bd_update_time
+    function formatUpdateTime(bdArray) {
+        var date_bd_time = new Date(
+          parseInt(bdArray.substring(0, 4)),  // Ano
+          parseInt(bdArray.substring(4, 6)) - 1,  // Mês (subtraindo 1, pois os meses em JavaScript são indexados de 0 a 11)
+          parseInt(bdArray.substring(6, 8)),  // Dia
+          parseInt(bdArray.substring(8, 10)) - 3,  // Hora (subtraindo 3, pois no bd esta salvando como gmt 0)
+          parseInt(bdArray.substring(10, 12)),  // Minuto
+          parseInt(bdArray.substring(12, 14))  // Segundo
+        );
+    
+        // Formata a data para exibição
+        var formattedDate = date_bd_time.toLocaleString('pt-BR', { timeZone: 'UTC' }); // Ajusta o timezone conforme necessário
+    
+        return formattedDate;
+      }
+    
     // Função para criar coluna com base nos dados do sensor
     function createSensorColumn(sensorData) {
-      var columnHTML = `
-        <div class="column is-one-third">
-          <div class="box" id="${sensorData.deviceName}">
-            <div class="notification">
-              <h3>${sensorData.deviceName}</h3>
-              Adicione suas mensagens ou dados específicos aqui.
-            </div>
-            <div class="sensor-menu" id="${sensorData.deviceName}-menu" style="display: none;">
-              <div class="notification">
-                <h3>Informações do Sensor</h3>
-                ${createTable(sensorData)}
+        var columnHTML = `
+          <div class="column is-one-third">
+            <div class="box " id="${sensorData.deviceName}">
+              <div class="notification is-success">
+                <h3 class="title is-5">${sensorData.deviceName}</h3>
+                Sensor operando normalmente.
+              </div>
+              <div class="sensor-menu" id="${sensorData.deviceName}-menu" style="display: none;">
+                <div class="notification">
+                  <h3>Informações do Sensor</h3>
+                  ${createTable(sensorData)}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      `;
-      return columnHTML;
-    }
+        `;
+        return columnHTML;
+      }
   
     function createTable(sensorData) {
       var tableHTML = '<table class="table is-bordered is-striped is-fullwidth"><tbody>';
@@ -44,7 +61,7 @@ $(document).ready(function () {
         'voltage': 'Voltagem',
         // Adicione mais rótulos conforme necessário
       };
-  
+      
       for (var key in sensorData) {
         tableHTML += '<tr>';
         tableHTML += `<th>${labels[key]}</th>`;
@@ -74,8 +91,11 @@ $(document).ready(function () {
             var columnHTML = createSensorColumn(sensorData);
             $("#sensorColumns").append(columnHTML);
           });
+          
         }
-  
+        var updateTimeInfo = formatUpdateTime(jsonData.bd_update_time);
+        $("#updateTimeInfo").html(`<strong>Última Atualização:</strong> ${updateTimeInfo}`);
+        
         // Evento de clique para exibir/ocultar informações do sensor
         $(".notification").click(function () {
           var sensorId = $(this).closest(".box").attr("id");
@@ -83,24 +103,34 @@ $(document).ready(function () {
   
           if (sensorMenu.is(":visible")) {
             sensorMenu.slideUp();
+            infoPanelOpen = false;  // Atualiza o status do painel para fechado
           } else {
             $(".sensor-menu").not(sensorMenu).slideUp();
             sensorMenu.slideDown();
+  
+            // Adiciona o botão de fechar ao painel de informações
+            var closeBtn = '<button class="delete" id="closeInfoPanelBtn"></button>';
   
             // Atualiza o conteúdo da área de informações do sensor
             var infoContent = $("#" + sensorId + "-menu .notification").html();
             var sensorInfoContent = createTable(jsonData.estacoes_metereologicas.find(sensor => sensor.deviceName === sensorId) || jsonData.microparticulas.find(sensor => sensor.deviceName === sensorId));
             $("#infoPanel").html(
-              `<div class="message">
-                <h3 class="message-header">Informações do Sensor (${sensorId})</h3>
+              `<div class="container is-desktop">
+              <article  class="message">
+                <h3 class="message-header">Informações do Sensor (${sensorId}) ${closeBtn}</h3>
                 <div class="message-body">
-                  <div class ="table is-bordered is-striped is-fullwidth">
+                  <div class="table is-bordered is-striped">
                     ${sensorInfoContent}
                   </div>
                 </div>
+              </article >"
               </div>`
             );
+  
+            infoPanelOpen = true;  // Atualiza o status do painel para aberto
           }
+          
+
         });
       });
     }
@@ -110,5 +140,11 @@ $(document).ready(function () {
   
     // Define um intervalo de atualização (a cada 5 minutos neste exemplo)
     setInterval(loadData, 5 * 60 * 1000);
+  
+    // Evento de clique para fechar o painel de informações se estiver aberto
+    $(document).on('click', '#closeInfoPanelBtn', function () {
+      $("#infoPanel").html('');  // Substitui o conteúdo por uma div vazia
+      infoPanelOpen = false;     // Atualiza o status do painel para fechado
+    });
   });
   
