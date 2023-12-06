@@ -11,7 +11,10 @@ gem 'rethinkdb'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'bulma-rails'
 gem 'sassc-rails'
-gem 'whenever', require: false
+gem 'clockwork'
+gem 'devise'
+
+
 ########################################################################
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]

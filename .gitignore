@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/json_data
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
