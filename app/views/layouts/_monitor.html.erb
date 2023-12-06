@@ -1,14 +1,21 @@
 <!-- app/views/pages/_monitor.html.erb -->
+
+<style>
+  .non-clickable {
+    pointer-events: none;
+  }
+</style>
+
 <div class="container is-widescreen">
-  <div class="notification is-info" id="updateTimeInfo"></div>
-  <div class="columns is-multiline" id="sensorColumns">
+  <div class="notification is-info is-unselectable non-clickable" id="updateTimeInfo"></div>
+  <div class="columns is-multiline is-clickable" id="sensorColumns">
     <!-- Colunas dinâmicas serão adicionadas aqui -->
   </div>
 </div>
 
 
 
-<div class="message" id="infoPanel">
+<div class="message " id="infoPanel">
     
   <!-- Conteúdo da área de informações do sensor -->
   

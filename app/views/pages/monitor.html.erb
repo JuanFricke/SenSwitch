@@ -1,45 +1,18 @@
 <!-- app/views/pages/home.html.erb -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sua Página</title>
-  <style>
-    .sensor-menu {
-      display: none;
-    }
-
-    .info-panel {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 300px;
-      overflow-y: auto;
-      background-color: #f5f5f5;
-      padding: 20px;
-      border-left: 1px solid #ddd;
-    }
-  </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <%= javascript_include_tag 'monitor' %>
-</head>
-<body>
-
+  <title>Monitor</title>
+  <!-- Adicione os scripts e estilos necessários aqui -->
 <% if user_signed_in? %> <!-- Verifica se o usuário está autenticado com Devise -->
-  <div class="container is-widescreen">
-    <div class="columns is-multiline" id="sensorColumns">
-      <!-- Colunas dinâmicas serão adicionadas aqui -->
+  <div class = " box title is-2">
+    <h2></h2>   
+  </div>
+  <%= render 'layouts/monitor'%>
+<% else %>
+  <div class="container is-widescreen">  
+    <div class="notification is-warning">
+      <p>Você precisa estar logado para acessar esta página.</p>
     </div>
   </div>
-
-  <div class="message" id="infoPanel">
-    <!-- Conteúdo da área de informações do sensor -->
-  </div>
-<% else %>
-  <p>Você precisa estar logado para acessar esta página.</p>
 <% end %>
-
-</body>
-</html>

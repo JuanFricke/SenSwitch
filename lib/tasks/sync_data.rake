@@ -3,6 +3,8 @@ require 'dotenv/load'
 require 'json'
 require 'fileutils'
 
+Time.zone = 'Brasilia'
+
 namespace :sync_data do
   task run: :environment do
     begin
@@ -29,7 +31,7 @@ namespace :sync_data do
       FileUtils.mkdir_p(json_data_dir) unless File.directory?(json_data_dir)
 
       # Salvar os dados em arquivos JSON locais no diretório senswitch/json_data
-      timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+      timestamp = Time.zone.now.strftime('%Y%m%d%H%M%S')
       combined_data = {
         timestamp: {timestamp:timestamp},
         estacoes_data: estacoes_data,
