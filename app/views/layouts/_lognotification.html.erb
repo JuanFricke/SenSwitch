@@ -1,0 +1,19 @@
+<style>
+  .non-clickable {
+    pointer-events: none;
+  }
+</style>
+
+
+<% if flash[:notice] %>
+              <div class="notification is-success mb-0 is-unselectable non-clickable" id="logNtf" role="alert">
+                <%= flash[:notice] %>
+                <button class="delete button is-dark" id="closeBtn" aria-label="Close"></button>
+              </div>
+            <% end %>
+            <% if flash[:alert] %>
+              <div class="notification is-warning mb-0 is-unselectable non-clickable" id="logNtf" role="alert">
+                <%= flash[:alert] %>
+                <button class="delete button is-dark" id="closeBtn" aria-label="Close"></button>
+              </div>
+<% end %>

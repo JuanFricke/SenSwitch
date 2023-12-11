@@ -5,14 +5,16 @@
   <title>Sua Página</title>
   <!-- Adicione os scripts e estilos necessários aqui -->
 <% if user_signed_in? %> <!-- Verifica se o usuário está autenticado com Devise -->
-  <div class = " box title is-2">
-    <h2>Bem vindo a SenSwitch</h2>   
-  </div>
+  
   <%= render 'layouts/monitor'%>
 <% else %>
   <div class="container is-widescreen">  
     <div class="notification is-warning">
       <p>Você precisa estar logado para acessar esta página.</p>
+      
     </div>
+    <progress class="progress is-small is-primary" max="50">10%</progress>
+    <br>
   </div>
 <% end %>
+

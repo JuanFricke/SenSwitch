@@ -10,33 +10,30 @@
     
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    </%= javascript_importmap_tags %>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>
+      
   </head>
 
   <body>
-    <%= render 'layouts/navbar'%>
-    
-      <div class="field">
-            
-            <% if flash[:notice] %>
-              <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
-                <%= flash[:notice] %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-            <% end %>
-            <% if flash[:alert] %>
-              <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
-                <%= flash[:alert] %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <% end %>
-      </div>
-    
-
-
-      
       <main>
-
-        <%= yield%>
+    
+        <%= render 'layouts/navbar'%>
+        <div class =" container is-mobile ">
+          <%= render 'layouts/lognotification'%>
+          <br>
+        </div>
+        <%= yield %>
     
     </main>
   </body>

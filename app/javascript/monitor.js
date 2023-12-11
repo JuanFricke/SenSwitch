@@ -134,12 +134,13 @@ $(document).ready(function () {
       
         if (sensorMenu.is(":visible")) {
           sensorMenu.slideUp();
-          $(this).removeClass("is-active"); // Remove a classe is-active quando o painel é fechado
+          $(this).removeClass("is-active"); 
+          //tenho impressão q este codigo não faz nada...
         } else {
           $(".sensor-menu").not(sensorMenu).slideUp();
           sensorMenu.slideDown();
-          $(".notification").removeClass("is-light"); // Remove a classe is-active de todas as notificações
-          $(this).addClass("is-light"); // Adiciona a classe is-active à notificação clicada
+          $(".notification").removeClass("is-light"); 
+          $(this).addClass("is-light"); 
       
           var closeBtn = '<button class="delete button is-dark" id="closeInfoPanelBtn"></button>';
       
@@ -170,7 +171,7 @@ $(document).ready(function () {
   // Define um intervalo de atualização (a cada 5 minutos neste exemplo)
   setInterval(loadData, 5 * 60 * 1000);
 
-  // Evento de clique para fechar o painel de informações se estiver aberto
+  
   // Evento de clique para fechar o painel de informações se estiver aberto
   $(document).on('click', '#closeInfoPanelBtn', function () {
     $(".notification.is-light").removeClass("is-light"); // Remove a classe is-light da notificação aberta
