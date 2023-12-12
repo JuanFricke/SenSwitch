@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+  <title>SenSwitch - Soluções Inteligentes em Gerenciamento de Sensores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag asset_path('logo.png') %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+
+<body>
+  <section class="hero is-primary is-bold is-fullheight is-fullheight-mobile">
+    <div class="hero-body">
+      <div class="container is-mobile">
+        <h1 class="title is-size-3-mobile"> <!-- Alterado para is-size-3-mobile -->
+          <%= image_tag("logo.png", alt: "Logo SenSwitch", class: "logo-image", width: "70", height: "70") %>
+          SenSwitch - Soluções Inteligentes em Gerenciamento de Sensores
+        </h1>
+        <h2 class="subtitle">Sua parceira na otimização do gerenciamento de sensores para impulsionar a eficiência operacional.</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="box">
+        <h2 class="title is-4 is-size-5-mobile"> <!-- Alterado para is-size-5-mobile -->
+          Visão Geral
+        </h2>
+        <p>A SenSwitch visa revolucionar a forma como as empresas lidam com o monitoramento de temperatura e umidade...</p>
+      </div>
+
+      <div class="box">
+        <h2 class="title is-4 is-size-5-mobile"> <!-- Alterado para is-size-5-mobile -->
+          Objetivo do Projeto
+        </h2>
+        <p>O objetivo central deste projeto é oferecer às empresas uma plataforma inovadora para o gerenciamento de sensores...</p>
+      </div>
+
+      <div class="box">
+        <h2 class="title is-4 is-size-5-mobile"> <!-- Alterado para is-size-5-mobile -->
+          Nosso Compromisso
+        </h2>
+        <p>Na SenSwitch, acreditamos que o monitoramento inteligente é a chave para o sucesso operacional...</p>
+      </div>
+
+      <div class="box">
+        <h2 class="title is-4 is-size-5-mobile"> <!-- Alterado para is-size-5-mobile -->
+          Por Que SenSwitch?
+        </h2>
+        <p>Somos mais do que uma solução de gerenciamento de sensores; somos seu parceiro confiável na busca pela excelência operacional...</p>
+      </div>
+    </div>
+  </section>
+
+  <% unless user_signed_in? %>
+    <div class="columns is-centered is-vcentered">
+      <div class="column is-half">
+        <div class="buttons is-centered is-vcentered">
+          <%= link_to "Entrar", new_user_session_path, class: "button is-primary is-fullwidth is-large is-fullwidth-mobile" %>
+          <%= link_to "Registrar", new_user_registration_path, class: "button is-light is-fullwidth is-large is-fullwidth-mobile mb-2" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</body>
+</html>

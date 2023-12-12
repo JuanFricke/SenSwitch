@@ -19,21 +19,22 @@
   <div id="navMenu" class="navbar-menu">
     <div class="navbar-start">
       <%= link_to "Json", refresh_data_path, class: "navbar-item" %>
-      <%= link_to "Test", test_path, class: "navbar-item" %>
+      
       <%= link_to "Monitor", monitor_path, class: "navbar-item" %>
       <%= link_to "Sobre", sobre_path, class: "navbar-item" %>
+      
 
     </div>
     <div class="navbar-end" >
       <div class="navbar-item">
         <div class="buttons">
-          <% if current_user %>
-            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-light navbar-item" %>
-            <%= link_to "Edit Account", edit_user_registration_path, class: "button is-primary navbar-item" %>
-          <% else %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "button is-light navbar-item" %>
-            <%= link_to "Sign In", new_user_session_path, class: "button is-primary navbar-item" %>
-          <% end %>
+            <% if current_user %>
+              <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "button is-light navbar-item" %>
+              <%= link_to "Editar Conta", edit_user_registration_path, class: "button is-primary navbar-item" %>
+            <% else %>
+              <%= link_to "Registrar", new_user_registration_path, class: "button is-light navbar-item" %>
+              <%= link_to "Entrar", new_user_session_path, class: "button is-primary navbar-item" %>
+            <% end %>
         </div>
       </div>
     </div>

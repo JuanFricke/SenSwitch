@@ -50,7 +50,7 @@ $(document).ready(function () {
       'wind_direction': 'Direção do Vento',
       'luminosity': 'Luminosidade',
       'uv': 'Índice UV',
-      'solar_radiation': 'Radiação Solar',
+      'solar_radiation': '<p class = "">Radiação Solar<p>',
       'atm_pres': 'Pressão Atmosférica',
       'co2': 'Dióxido de Carbono (CO2)',
       'nh3': 'Amônia (NH3)',
@@ -155,7 +155,7 @@ $(document).ready(function () {
                     ${sensorInfoContent}
                   </div>
                 </div>
-              </article >"
+              </article >
             </div>`
           );
       
@@ -171,7 +171,6 @@ $(document).ready(function () {
   // Define um intervalo de atualização (a cada 5 minutos neste exemplo)
   setInterval(loadData, 5 * 60 * 1000);
 
-  
   // Evento de clique para fechar o painel de informações se estiver aberto
   $(document).on('click', '#closeInfoPanelBtn', function () {
     $(".notification.is-light").removeClass("is-light"); // Remove a classe is-light da notificação aberta
@@ -179,3 +178,4 @@ $(document).ready(function () {
     infoPanelOpen = false;
   });
 });
+

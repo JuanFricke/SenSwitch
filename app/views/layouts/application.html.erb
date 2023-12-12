@@ -2,39 +2,33 @@
 <html lang='pt-BR'>
 <meta charset='UTF-8'>
   <head>
-    <title>App</title>
+    <title>SenSwitch - Soluções Inteligentes em Gerenciamento de Sensores</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <%= favicon_link_tag asset_path('logo.png') %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     </%= javascript_importmap_tags %>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-    const $notification = $delete.parentNode;
 
-    $delete.addEventListener('click', () => {
-      $notification.parentNode.removeChild($notification);
-    });
-  });
-});
-</script>
       
   </head>
 
   <body>
       <main>
-    
-        <%= render 'layouts/navbar'%>
-        <div class =" container is-mobile ">
+    <% if user_signed_in? %> <!-- Verifica se o usuário está autenticado com Devise -->
+  
+    <%= render 'layouts/navbar'%>
+    <%end%>
+        <!--
+        <div class =" container is-mobile" style="margin-top: -24px;">
           <%= render 'layouts/lognotification'%>
           <br>
         </div>
+         -->
         <%= yield %>
-    
+        
     </main>
   </body>
 </html>
