@@ -1,8 +1,14 @@
+<section class="hero is-primary is-bold is-fullheight is-fullheight-mobile" style="position: relative; overflow: hidden; background: linear-gradient(to bottom, #002A72, #002768E4,  #00081500);">
+<div class="hero-body columns is-centered is-vcentered " style="position: relative;">
+          <%= image_tag('bg-stars.png', style: 'width: 100%; height: 40%; object-fit: cover; position: absolute; top: 0; left: 0;') %>
+
+
+
 <div class="columns is-centered "> 
 <br>
 <div class="is-desktop is-mobile box">
 
-<h2 class="title">Log in</h2>
+<h2 class="title has-text-dark">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -23,7 +29,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class:"button is-primary"%>
+    <%= f.submit "Log in", class:"button is-link"%>
   </div>
 <% end %>
 
@@ -31,3 +37,5 @@
 
 </div>
 </div>
+ </div>
+  </section>

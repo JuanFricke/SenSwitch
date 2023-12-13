@@ -30,10 +30,10 @@
         <div class="buttons">
             <% if current_user %>
               <%= button_to "Sair", destroy_user_session_path, method: :delete, class: "button is-light navbar-item" %>
-              <%= link_to "Editar Conta", edit_user_registration_path, class: "button is-primary navbar-item" %>
+              <%= link_to "Editar Conta", edit_user_registration_path, class: "button is-link navbar-item" %>
             <% else %>
               <%= link_to "Registrar", new_user_registration_path, class: "button is-light navbar-item" %>
-              <%= link_to "Entrar", new_user_session_path, class: "button is-primary navbar-item" %>
+              <%= link_to "Entrar", new_user_session_path, class: "button is-link navbar-item" %>
             <% end %>
         </div>
       </div>

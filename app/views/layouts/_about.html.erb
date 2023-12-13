@@ -12,17 +12,20 @@
 </head>
 
 <body>
-  <section class="hero is-primary is-bold is-fullheight is-fullheight-mobile">
-    <div class="hero-body">
-      <div class="container is-mobile">
-        <h1 class="title is-size-3-mobile"> <!-- Alterado para is-size-3-mobile -->
-          <%= image_tag("logo.png", alt: "Logo SenSwitch", class: "logo-image", width: "70", height: "70") %>
-          SenSwitch - Soluções Inteligentes em Gerenciamento de Sensores
-        </h1>
-        <h2 class="subtitle">Sua parceira na otimização do gerenciamento de sensores para impulsionar a eficiência operacional.</h2>
-      </div>
-    </div>
-  </section>
+    <section class="hero is-primary is-bold is-fullheight is-fullheight-mobile" style="position: relative; overflow: hidden; background: linear-gradient(to bottom, #002A72, #002768E4,  #00081500);">
+        <div class="hero-body" style="position: relative;">
+          <%= image_tag('bg-stars.png', style: 'width: 100%; height: 40%; object-fit: cover; position: absolute; top: 0; left: 0;') %>
+          <div class="container is-mobile">
+            <h1 class="title is-size-3-mobile">
+              <%= image_tag("logo.png", alt: "Logo SenSwitch", class: "logo-image", width: "70", height: "70") %>
+              SenSwitch - Soluções Inteligentes em Gerenciamento de Sensores
+            </h1>
+            <h2 class="subtitle">Sua parceira na otimização do gerenciamento de sensores para impulsionar a eficiência operacional.</h2>
+          </div>
+        </div>
+
+    </section>
+
 
   <section class="section">
     <div class="container">
@@ -30,7 +33,8 @@
         <h2 class="title is-4 is-size-5-mobile"> <!-- Alterado para is-size-5-mobile -->
           Visão Geral
         </h2>
-        <p>A SenSwitch visa revolucionar a forma como as empresas lidam com o monitoramento de temperatura e umidade...</p>
+        <h3 class="title is-6 is-size-8-mobile">A “SenSwitch” é uma empresa em ascensão confiável que busca desenvolver soluções para o monitoramento de sensores para diversos tipos de empresas que necessitam.</h3>
+        <p> Nossa equipe é formada por profissionais capacitados que prezam pelo funcionamento e a qualidade dos sistemas que desenvolvemos. Nosso ponto forte está no desenvolvimento de websites com princípio de uso direcionado a monitoramento de sensores para outras empresas.</p>
       </div>
 
       <div class="box">
@@ -60,7 +64,7 @@
     <div class="columns is-centered is-vcentered">
       <div class="column is-half">
         <div class="buttons is-centered is-vcentered">
-          <%= link_to "Entrar", new_user_session_path, class: "button is-primary is-fullwidth is-large is-fullwidth-mobile" %>
+          <%= link_to "Entrar", new_user_session_path, class: "button is-link is-fullwidth is-large is-fullwidth-mobile" %>
           <%= link_to "Registrar", new_user_registration_path, class: "button is-light is-fullwidth is-large is-fullwidth-mobile mb-2" %>
         </div>
       </div>
