@@ -50,7 +50,7 @@ $(document).ready(function () {
       'wind_direction': 'Direção do Vento',
       'luminosity': 'Luminosidade',
       'uv': 'Índice UV',
-      'solar_radiation': 'Radiação Solar',
+      'solar_radiation': '<p class = "">Radiação Solar<p>',
       'atm_pres': 'Pressão Atmosférica',
       'co2': 'Dióxido de Carbono (CO2)',
       'nh3': 'Amônia (NH3)',
@@ -131,16 +131,19 @@ $(document).ready(function () {
       $(".notification").click(function () {
         var sensorId = $(this).closest(".box").attr("id");
         var sensorMenu = $("#" + sensorId + "-menu .sensor-menu");
-
+      
         if (sensorMenu.is(":visible")) {
           sensorMenu.slideUp();
-          infoPanelOpen = false;
+          $(this).removeClass("is-active"); 
+          //tenho impressão q este codigo não faz nada...
         } else {
           $(".sensor-menu").not(sensorMenu).slideUp();
           sensorMenu.slideDown();
-
-          var closeBtn = '<button class="delete" id="closeInfoPanelBtn"></button>';
-
+          $(".notification").removeClass("is-light"); 
+          $(this).addClass("is-light"); 
+      
+          var closeBtn = '<button class="delete button is-dark" id="closeInfoPanelBtn"></button>';
+      
           var infoContent = $("#" + sensorId + "-menu .notification").html();
           var sensorInfoContent = createTable(jsonData.estacoes_metereologicas.find(sensor => sensor.deviceName === sensorId) || jsonData.microparticulas.find(sensor => sensor.deviceName === sensorId));
           $("#infoPanel").html(
@@ -152,10 +155,10 @@ $(document).ready(function () {
                     ${sensorInfoContent}
                   </div>
                 </div>
-              </article >"
+              </article >
             </div>`
           );
-
+      
           infoPanelOpen = true;
         }
       });
@@ -170,7 +173,9 @@ $(document).ready(function () {
 
   // Evento de clique para fechar o painel de informações se estiver aberto
   $(document).on('click', '#closeInfoPanelBtn', function () {
+    $(".notification.is-light").removeClass("is-light"); // Remove a classe is-light da notificação aberta
     $("#infoPanel").html('');
     infoPanelOpen = false;
   });
 });
+

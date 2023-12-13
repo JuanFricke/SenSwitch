@@ -1,5 +1,30 @@
-<h1>Pages#test</h1>
-<p>Find me in app/views/pages/test.html.erb</p>
+<h1>Pages#sobre</h1>
+<p>Find me in app/views/pages/teste.html.erb</p>
 
-<%= link_to "Home", root_path, "data-turbo": false%>
 
+<%= link_to "Home", root_path, "data-turbo": false, class:"button is-danger"%>
+
+<button onclick="mostrarNotificacao()" class="button is-link">Mostrar Notificação</button>
+<script>
+function mostrarNotificacao() {
+  // Verifica se o navegador suporta notificações
+  if ('Notification' in window) {
+    // Solicita permissão para exibir notificações
+    Notification.requestPermission().then(function (permission) {
+      if (permission === 'granted') {
+        // Cria uma nova notificação
+        var notificacao = new Notification('⚠Aviso de erro em sensor⚠', {
+          body: 'Sensor "Teste" não esta funcionando corretamente',
+          icon: 'app/assets/images/1.png' // Opcional: caminho para um ícone personalizado
+        });
+
+        // Adiciona um evento de clique na notificação
+        notificacao.onclick = function () {
+          //alert('Notificação clicada!');
+          window.location.href = '/monitor';
+        };
+      }
+    });
+  }
+}
+</script>

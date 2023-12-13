@@ -6,7 +6,7 @@
   }
 </style>
 
-<div class="container is-widescreen">
+<div class="container is-mobile">
   <div class="notification is-info is-unselectable non-clickable" id="updateTimeInfo"></div>
   <div class="columns is-multiline is-clickable" id="sensorColumns">
     <!-- Colunas dinâmicas serão adicionadas aqui -->
@@ -23,3 +23,18 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <%= javascript_include_tag 'monitor' %>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+    $(document).on('click', '#closeBtn', function () {
+    $("#infoPanel").html('');
+    infoPanelOpen = false;
+  });
+  });
+});
+</script>

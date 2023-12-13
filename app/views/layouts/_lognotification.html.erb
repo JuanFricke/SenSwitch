@@ -1,0 +1,35 @@
+<style>
+  .non-clickable {
+    pointer-events: none;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+    $(document).on('click', '#closeBtn', function () {
+    $("#infoPanel").html('');
+    infoPanelOpen = false;
+  });
+  });
+});
+</script>
+
+
+<% if flash[:notice] %>
+              <div class="notification is-success mb-0 is-unselectable non-clickable" id="logNtf" role="alert" style="margin-top: 48px;">
+                <%= flash[:notice] %>
+                <button class="delete button is-dark" id="closeBtn" aria-label="Close"></button>
+              </div>
+            <% end %>
+            <% if flash[:alert] %>
+              <div class="notification is-warning mb-0 is-unselectable non-clickable" id="logNtf" role="alert">
+                <%= flash[:alert] %>
+                <button class="delete button is-dark" id="closeBtn" aria-label="Close"></button>
+              </div>
+<% end %>

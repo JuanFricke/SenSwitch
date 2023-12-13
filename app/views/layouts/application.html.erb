@@ -1,42 +1,34 @@
 <!DOCTYPE html>
-<html >
+<html lang='pt-BR'>
+<meta charset='UTF-8'>
   <head>
-    <title>App</title>
+    <title>SenSwitch - Soluções Inteligentes em Gerenciamento de Sensores</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+    <%= favicon_link_tag asset_path('logo.png') %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    </%= javascript_importmap_tags %>
+
+      
   </head>
 
   <body>
-    <%= render 'layouts/navbar'%>
-    
-      <div class="field">
-            
-            <% if flash[:notice] %>
-              <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
-                <%= flash[:notice] %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-            <% end %>
-            <% if flash[:alert] %>
-              <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
-                <%= flash[:alert] %>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <% end %>
-      </div>
-    
-
-
-      
       <main>
-
-        <%= yield%>
-    
+    <% if user_signed_in? %> <!-- Verifica se o usuário está autenticado com Devise -->
+  
+    <%= render 'layouts/navbar'%>
+    <%end%>
+        <!--
+        <div class =" container is-mobile" style="margin-top: -24px;">
+          <%= render 'layouts/lognotification'%>
+          <br>
+        </div>
+         -->
+        <%= yield %>
+        
     </main>
   </body>
 </html>
