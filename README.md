@@ -2,6 +2,9 @@
 
 Este projeto é parte do curso de Gestão de Infraestruturas da Universidade Regional do Noroeste do Estado do Rio Grande do Sul (UNIJUÍ). O objetivo deste aplicativo é verificar o status dos sensores armazenados no banco de dados RethinkDB, fornecendo um painel de controle e notificações para os usuários.
 
+Video com resultados e explicações das tecnologias e do sistema em funcionamento
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/yjDx3dPx10A/0.jpg)](https://www.youtube.com/watch?v=yjDx3dPx10A)
+
 ## Tecnologias Utilizadas
 
 - Ruby v3.2.2
